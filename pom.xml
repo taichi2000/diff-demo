@@ -5,4 +5,29 @@
 	<artifactId>diff-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Diff demo application</name>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.googlecode.java-diff-utils</groupId>
+			<artifactId>diffutils</artifactId>
+			<version>1.2.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/libs/diffutils-1.2.1.jar</systemPath>
+		</dependency>
+	</dependencies>
+
 </project>

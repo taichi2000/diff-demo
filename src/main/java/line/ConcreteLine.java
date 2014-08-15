@@ -1,5 +1,12 @@
 package line;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import difflib.Delta;
+import difflib.DiffUtils;
+import difflib.Patch;
+
 public class ConcreteLine implements Line {
 	public class NullTextException extends LineException {
 		private static final long serialVersionUID = 8748073389658469188L;
@@ -20,18 +27,55 @@ public class ConcreteLine implements Line {
 	public String compareTo(Line anotherLine) {
 		String result = "";
 
-		String line = anotherLine.getLineString();
+		String newText = anotherLine.getLineString();
 
-		if (!_line.equals(line)) {
-			if (isNullOrEmpty(line)) {
+		if (!_line.equals(newText)) {
+			if (isNullOrEmpty(newText)) {
 				result += "-";
 			} else {
+				List<String> listOriginal = createArrayList(_line);
+				List<String> listNew = createArrayList(newText);
 
-				// result = aplicar estrategia de diff aqui
+				Patch patch = DiffUtils.diff(listOriginal, listNew);
+
+				List<Delta> deltas = patch.getDeltas();
+				
+				StringBuilder pluses = new StringBuilder();
+				StringBuilder minuses = new StringBuilder();
+
+				for (Delta delta : deltas) {
+					switch (delta.getType()) {
+					case CHANGE:
+						pluses.append("+");
+						minuses.append("-");
+						break;
+
+					case DELETE:
+						minuses.append("-");
+						break;
+
+					case INSERT:
+						pluses.append("+");
+						break;
+
+					default:
+						break;
+					}
+				}
+
+				result = pluses.append(minuses).toString();
 			}
 		}
 
 		return result;
+	}
+
+	private ArrayList<String> createArrayList(String line) {
+		ArrayList<String> list = new ArrayList<String>();
+
+		list.add(line);
+
+		return list;
 	}
 
 	private boolean isNullOrEmpty(String line) {
