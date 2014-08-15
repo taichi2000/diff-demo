@@ -5,8 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import line.Line;
-import line.LineFactory;
+import diffdemo.line.Line;
+import diffdemo.line.LineFactory;
 
 public class MyFileReader {
 	private BufferedReader _reader;

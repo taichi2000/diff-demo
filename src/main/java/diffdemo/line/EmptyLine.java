@@ -1,4 +1,4 @@
-package line;
+package diffdemo.line;
 
 /**
  * Represents an Empty Line

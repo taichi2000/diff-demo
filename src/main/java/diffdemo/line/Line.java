@@ -1,4 +1,4 @@
-package line;
+package diffdemo.line;
 
 /**
  * Represent a Line from a text file

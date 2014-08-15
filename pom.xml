@@ -28,6 +28,13 @@
 			<scope>system</scope>
 			<systemPath>${project.basedir}/libs/diffutils-1.2.1.jar</systemPath>
 		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.0</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 </project>

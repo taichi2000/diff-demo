@@ -1,4 +1,4 @@
-package line;
+package diffdemo.line;
 
 import java.util.ArrayList;
 import java.util.List;

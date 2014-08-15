@@ -1,4 +1,4 @@
-package line;
+package diffdemo.line;
 
 /**
  * Convenience class for create Line objects. A line could be instantiaded with

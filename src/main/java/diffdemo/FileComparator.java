@@ -2,7 +2,7 @@ package diffdemo;
 
 import java.io.IOException;
 
-import line.Line;
+import diffdemo.line.Line;
 
 /**
  * Compares two files and creates text report showing number of differences:
