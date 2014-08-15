@@ -4,20 +4,23 @@ import java.io.IOException;
 
 import org.junit.Test;
 
+/**
+ * Tests diff reports generated
+ */
 public class DiffRunnerTest {
 
 	@Test
 	public void testDiff() throws IOException {
-		String filePath1 = "/old.txt";
-		String filePath2 = "/new.txt";
+		String originalFilePath = "/old.txt";
+		String newFilePath = "/new.txt";
 
-		DiffRunner diffRunner = new DiffRunner(filePath1, filePath2);
+		DiffRunner diffRunner = new DiffRunner(originalFilePath, newFilePath);
 
-		String diffResult = diffRunner.diff();
+		String diffReport = diffRunner.diff();
 
 		System.out.println("RESULT IS:");
 		System.out.println("==========");
-		System.out.println(diffResult);
+		System.out.println(diffReport);
 	}
 
 }

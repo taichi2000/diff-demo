@@ -3,19 +3,30 @@ package diffdemo;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+/**
+ * Utility class to create a diff report
+ *
+ */
 public class DiffRunner {
-	private MyFileReader _oldFile;
-	private MyFileReader _newFile;
+	private MyFileReader _originalFileReader;
+	private MyFileReader _newFileReader;
 
-	public DiffRunner(String oldFile, String newFile)
+	public DiffRunner(String originalFilePath, String newFilePath)
 			throws FileNotFoundException {
-		_oldFile = new MyFileReader(oldFile);
-		_newFile = new MyFileReader(newFile);
+		_originalFileReader = new MyFileReader(originalFilePath);
+		_newFileReader = new MyFileReader(newFilePath);
 	}
 
+	/**
+	 * Creates a diff report from comparing two files
+	 * 
+	 * @return diff report
+	 * @throws IOException
+	 */
 	public String diff() throws IOException {
-		String diffResult = Comparator.compare(_oldFile, _newFile);
+		String diffReport = FileComparator.compare(_originalFileReader,
+				_newFileReader);
 
-		return diffResult;
+		return diffReport;
 	}
 }
